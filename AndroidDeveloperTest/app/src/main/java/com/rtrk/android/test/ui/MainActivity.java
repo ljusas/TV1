@@ -31,12 +31,13 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash);
 
-        tv = (TextView) findViewById(R.id.tv_splash);
-        iv = (ImageView) findViewById(R.id.iv_splash);
-        Animation animation = AnimationUtils.loadAnimation(this, R.anim.transition);
+        tv = (TextView) findViewById(R.id.tv_splash);    // set text
+        iv = (ImageView) findViewById(R.id.iv_splash);   // set icon
+        Animation animation = AnimationUtils.loadAnimation(this, R.anim.transition);  // set animation
         tv.startAnimation(animation);
         iv.startAnimation(animation);
         final Intent play = new Intent(this, Playback.class);
+        // create splash screen
         Thread splash = new Thread(){
             public void run(){
                 try {
@@ -45,11 +46,11 @@ public class MainActivity extends Activity {
                     e.printStackTrace();
                 }
                 finally {
-                    startActivity(play);
-                    finish();
+                    startActivity(play);  // start playback of channel
+                    finish();     // finish splash screen
                 }
             }
         };
-            splash.start();
+            splash.start();   // start splash screen
     }
 }
